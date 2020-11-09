@@ -29,6 +29,13 @@ const Home = loadable({
 	loading: ()=><p>Loading</p>,
 	modules: ['@pages/Home'],
   	webpack: () => [require.resolveWeak('@pages/Home')]
+});
+
+const VideoList = loadable({
+	loader: () => import('@pages/VideoList'),
+	loading: ()=><p>Loading</p>,
+	modules: ['@pages/VideoList'],
+  	webpack: () => [require.resolveWeak('@pages/VideoList')]
 })
 
 const RouteHandler = (props)=>{
@@ -46,6 +53,7 @@ const routes = [
 	{path: '/language', component: Language, header: false, title: ''},
 	{path: '/category', component: Category, header: false, title: ''},
 	{path: '/home', component: Home, header: false, title: ''},
+	{path: '/list', component: VideoList, header: false, title: ''},
 ]
 const Routes = (props)=>{
 	return(

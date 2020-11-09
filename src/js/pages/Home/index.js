@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import Header from '../Header';
-import Recording from './recording.js';
+import RecordVideo from './recording.js';
 
 const Home = ()=>{
-
+    
     return(
         <>
             <Header />
-            <Recording/>
+            <RecordVideo/>
         </>
     )
 }
