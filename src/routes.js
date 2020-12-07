@@ -38,6 +38,13 @@ const VideoList = loadable({
   	webpack: () => [require.resolveWeak('@pages/VideoList')]
 })
 
+const HomePage = loadable({
+	loader: () => import('@pages/HomePage'),
+	loading: ()=><p>Loading</p>,
+	modules: ['@pages/HomePage'],
+  	webpack: () => [require.resolveWeak('@pages/HomePage')]
+})
+
 const RouteHandler = (props)=>{
 	const { history, Route }= props;
 	if(!Route.header){
@@ -49,7 +56,8 @@ const RouteHandler = (props)=>{
 			</React.Fragment>
 }
 const routes = [
-	{path: '/', component: Login, header: false, title: ''},
+	{path: '/', component: HomePage, header: false, title: ''},
+	{path: '/login', component: Login, header: false, title: ''},
 	{path: '/language', component: Language, header: false, title: ''},
 	{path: '/category', component: Category, header: false, title: ''},
 	{path: '/home', component: Home, header: false, title: ''},
