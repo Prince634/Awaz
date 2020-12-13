@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import { useHistory } from 'react-router-dom';
 import ArrowIcon from './assets/arrow.png';
 import InstructorIcon from './assets/instructor.png';
 import DiscussionIcon from './assets/discussion.png';
@@ -7,9 +8,10 @@ import { work } from './styles.js';
 
 const HowItWorks = ()=>{
 
+    const history = useHistory();
     const selectInstructor = useCallback(()=>{
-
-    },[]);
+        history.push('/home');
+    },[history]);
 
     return(
         <div className={work}>

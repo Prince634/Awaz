@@ -7,12 +7,37 @@ export const container = css`{
     box-sizing: border-box;
 }`;
 
-export const header = css`{
-    width: 100%;
-    background: #5f8cb3;
-    padding: 24px 120px;
+export const sticky = css`{
+    color: #FFF;
+    .filterStickyHeader {
+        padding: 8px 12px;
+        display: flex;
+        position: fixed;
+        justify-content: space-between;
+        align-items: center;
+        margin: 28px 0px 16px 0px;
+        transition: top 0.6s ease !important;
+        z-index: 8;
+        width: 100%;
+        background: #5f8cb3;
+        border-radius: 0px;
+        box-sizing: border-box;
+    }
+    .highLightStickyFilter {
+        z-index: 99;
+    }
+    .filterSticky {
+        top: -28px;
+        left: 0px;
+        right: 0px;
+        width: 100%;
+    }
+    .filterHide {
+        top: -100px;
+    }
     box-sizing: border-box;
     .topSection{
+        width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -27,7 +52,7 @@ export const header = css`{
             cursor: pointer;
         }
         img{
-            height: 84px;
+            height: 44px;
         }
         .line{
             font-weight: 500;
@@ -56,6 +81,40 @@ export const header = css`{
             }
         }
     }
+    .showStaticHeader{
+        margin: 0px;
+        position: relative;
+    }
+    @media(max-width: 600px){
+        .options{
+            display: none;
+        }
+    }
+}`;
+
+export const menu = css`{
+    display: none;
+    @media(max-width: 600px){
+        display: flex;
+        flex-direction: column;
+        span{
+            display: inline-block;
+            width: 26px;
+            height: 4px;
+            margin-bottom: 4px;
+            background: #FFF;
+            &:last{
+                margin-bottom: 0px;
+            }
+        }
+    }
+}`;
+
+export const header = css`{
+    width: 100%;
+    background: #5f8cb3;
+    padding: 44px 120px;
+    box-sizing: border-box;
     .intro{
         display: flex;
         justify-content: space-between;
@@ -90,10 +149,6 @@ export const header = css`{
             align-items: center;
             justify-content: center;
             font-family: Nunito;
-            &:hover{
-                top: -8px;
-                transition: top ease-out 0.5s;
-            }
         }
         .join{
             cursor: pointer;
@@ -109,10 +164,6 @@ export const header = css`{
             align-items: center;
             justify-content: center;
             font-family: Nunito;
-            &:hover{
-                top: -8px;
-                transition: top ease-out 0.5s;
-            }
         }
     }
     .mainImg{
@@ -234,5 +285,189 @@ export const form = css`{
     @media(min-width: 600px) and (max-width: 992px){
         padding: 40px;
         
+    }
+}`;
+
+export const mobileMenuBar = css`{
+    position: fixed;
+    z-index: 99;
+    display: flex;
+    color: #FFF;
+    top: 49px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .menuContainer{
+        height: 100px;
+        width: 100px;
+        position: relative;
+        top: 15px;
+        width: 100%;
+        span{
+            padding: 16px;
+            display: block;
+            font-size: 18px;
+            text-align: center;
+            border-bottom: 2px solid #FFF;
+        }
+    }
+}`;
+
+export const mobileSwiperContainer = props => css`
+   {
+    width: 100%;
+    min-width: 100%;
+    transition: transform 0.5s ease-out;
+    transform: translate(calc(${props.index}* (-100%)));
+    .mobileMembershipCarousel{
+        height: 200px;
+    }
+    @media (min-width: 1000px) {
+      display: flex;
+      flex-shrink: 0;
+      flex-grow: 0;
+      justify-content: center;
+    }
+  }
+`;
+
+export const mobileMemberCarouselCard = css`
+   {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-shrink: 0;
+    flex-grow: 0;
+    overflow-x: hidden;
+    .mobileCarouselItem {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .heading{
+            font-size: 18px;
+            font-weight: 800;
+        }
+    }
+    .icon {
+        margin-bottom: 12px;
+    }
+    .text{
+        color: #635f5f;
+        margin-top: 4px;
+    }
+    .no {
+        border-radius: 50%;
+        height: 16px;
+        width: 16px;
+        color: #fff;
+        background: rgba(171, 176, 183, 0.96);
+        box-shadow: 2px 5px 8px rgba(106, 205, 112, 0.3);
+        position: absolute;
+        top: -6px;
+        left: -4px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 8px;
+    }
+    @media(min-width: 768px){
+        .mobileCarouselItem{
+            flex-direction: row;
+            display: flex;
+            align-items: flex-start;
+        }
+        .text{
+            text-align: start;
+            margin-left: 32px;
+            margin-top: 12px;
+        }
+    }
+  }
+`;
+
+export const iconCont = css`{
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 13px 31px rgba(29, 65, 98, 0.05);
+    border-radius: 16px;
+    margin-right: 16px;
+    background: #FFFFFF;
+    border: 0.4px solid #EBEBEB;
+    height: 48px;
+    width: 48px;
+    img{
+        height: 100%;
+        width: 100%;
+        border-radius: 16px;
+    }
+    @media(min-width: 1000px){{
+      margin: 0px;
+      height: 100px;
+      width: 100px;
+      border: 0.6px solid #EBEBEB;
+      border-radius: 32px;
+    }
+    .round{
+      border-radius: 50%;
+      height: 30px;
+      width: 30px;
+      color: #fff;
+      font-size: 16px;
+      background: rgba(171, 176, 183, 0.96);
+      box-shadow: 2px 5px 8px rgba(106, 205, 112, 0.3);
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }`;
+  
+  export const icon = css`
+     {
+      height: 17px;
+      width: 24px;
+      @media (min-width: 1000px) {
+        height: 48px;
+        width: 70px;
+      }
+    }
+  `;
+
+  export const toggleBar = css`
+  {
+   margin: 20px 0px;
+   display: flex;
+   justify-content: center;
+   span {
+     cursor: pointer;
+     width: 24px;
+     height: 4px;
+     border-radius: 1px;
+     background: #07062e;
+     opacity: 0.1;
+     margin-right: 8px;
+   }
+   .active {
+     opacity: 1;
+     background: linear-gradient(174.29deg, #14a01d 0%, #6dcf73 100%);
+   }
+ }
+`;
+
+export const topCompanies = css`{
+    h2{
+        font-size: 40px;
+        color: #635f5f;
+        margin: 0px;
+        margin-top: 20px;
+        text-align: center;
     }
 }`;
